@@ -7,7 +7,7 @@ This homework explored adding new functionality to the read_animals.py file from
 Install this project by cloning the following repository and  
 
 ```bash
-git clone 
+git clone https://github.com/rahulnaik401/rnaik-coe332.git
 ```
 The project is in the homework 02 directory
 ```bash
