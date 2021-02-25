@@ -9,7 +9,7 @@ class TestReadAnimals(unittest.TestCase):
 		self.assertDictEqual(breed(self.D1,self.D2),breed(self.D1,self.D2))
 
 		self.assertRaises(AssertionError,breed,1)
-    		self.assertRaises(AssertionError,breed,False)
+    		self.assertRaises(AssertionError,breed,True)
     		self.assertRaises(AssertionError,breed,{})
 
 if __name__=='__main__':
