@@ -19,7 +19,7 @@ def main():
         this_animal['legs'] = random.randint(1,4) * 3
         this_animal['tail'] = this_animal['legs'] + this_animal['arms']
 	this_animal['created_on']=str(datetime.datetime.now())
-	this_animal['uid']=str(uuid.uuid4())
+	this_animal['uuid']=str(uuid.uuid4())
         animal_dict['animals'].append(this_animal)
 
     rd=redis.StrictRedis(host='redis',port=6379,db=0)
