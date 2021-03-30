@@ -19,17 +19,8 @@ def main():
         this_animal['arms'] = random.randint(1,5) * 2
         this_animal['legs'] = random.randint(1,4) * 3
         this_animal['tail'] = this_animal['legs'] + this_animal['arms']
-<<<<<<< HEAD
         this_animal['created_on'] = str(datetime.datetime.now())
         this_animal['uuid'] = str(uuid.uuid4())        
-=======
-	this_animal['created_on']=str(datetime.datetime.now())
-	this_animal['uuid']=str(uuid.uuid4())
-        animal_dict['animals'].append(this_animal)
-
-    rd=redis.StrictRedis(host='redis',port=6379,db=0)
-    rd.set('animals',json.dumps(animal_dict,indent=2))
->>>>>>> 155bf0b8e3348f4ef461491b9ee6993c3d65ebb8
 
         animal_dict['animals'].append(this_animal)
     with open(sys.argv[1], 'w') as f:
