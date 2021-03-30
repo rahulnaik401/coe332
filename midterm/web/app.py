@@ -24,8 +24,8 @@ def animals_in_daterange():
 	beg=request.args.get('beginning_date')
 	end=request.args.get('end_date')
 	
-	beg_date=datetime.datetime.strptime(beg, '%Y-%m-%d')
-	end_date=datetime.datetime.strptime(end, '%Y-%m-%d')
+	beg_date=datetime.datetime.strptime(beg, '%Y-%m-%d %H:%M:%S.%f')
+	end_date=datetime.datetime.strptime(end, '%Y-%m-%d %H:%M:%S.%f')
 
 	for x in animalsList:
 		if(x['created_on']>beg_date and x['created_on']<end_date):
@@ -63,8 +63,8 @@ def animals_delete_daterange():
 	beg=request.args.get('beginning_date')
 	end=request.args.get('end_date')
 	
-	beg_date=datetime.datetime.strptime(beg, '%Y-%m-%d')
-	end_date=datetime.datetime.strptime(end, '%Y-%m-%d')
+	beg_date=datetime.datetime.strptime(beg, '%Y-%m-%d %H:%M:%S.%f')
+	end_date=datetime.datetime.strptime(end, '%Y-%m-%d %H:%M:%S.%f')
 	for x in animalsList:
 		if (x['created_on']>beg_date and x['created_on']<end_date):
 			animalsList.remove(x)
