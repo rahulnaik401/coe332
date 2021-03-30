@@ -92,3 +92,4 @@ def animals_total():
 		
 if __name__=='__main__':
 	app.run(debug=True, host='0.0.0.0')
+	rd = redis.StrictRedis(host='redis', port=6379, db=0)
