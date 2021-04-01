@@ -14,7 +14,7 @@ def getdata():
 @app.route('/animals', methods=['GET'])
 def get_animals():
 
-	return json.dumps(getdata())
+	return json.dumps(getdata(), indent=2)
 
 @app.route('/animals/daterange/',methods=['GET'])
 def animals_in_daterange():
@@ -38,8 +38,10 @@ def animals_uuid_select():
 	animal_dict=getdata()
 	animalsList=animal_dict['animals']
 	uuid=request.args.get('uuid')
-	selected=[x for x in animal_dict if x['uuid']==uuid]
-	return json.dumps(selected, indent=2)
+	for x in animalsList:
+		if (x['uuid']==uuid):
+			return x
+
 
 @app.route('/animals/uuid_edit/',methods=['GET'])
 def animals_uuid_edit():
@@ -87,8 +89,12 @@ def animals_total():
 	animal_dict=getdata()
 	animalsList=animal_dict['animals']
 	total=len(animalsList)
+
 	return str(total)
 
 		
 if __name__=='__main__':
+
 	app.run(debug=True, host='0.0.0.0')
+	
+
