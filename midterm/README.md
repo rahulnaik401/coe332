@@ -6,7 +6,7 @@ In this midterm I created a python flask app which generates random animals and 
 
 Clone this repository
 ```bash
-git clone https://github.com/bradenpecora/bsp825-coe332.git
+git clone https://github.com/rahulnaik401/rnaik26-coe332.git
 ```
 
 ## Usage
