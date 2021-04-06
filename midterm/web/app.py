@@ -1,9 +1,12 @@
 import json
 import datetime
 import redis
+import petname
+import uuid
+import random
 from flask import Flask, request
 
-rd=redis.StrictRedis(host='127.0.0.1',port=6379,db=0)
+rd=redis.StrictRedis(host='rahul-midterm-redis',port=6379,db=0)
 
 app= Flask(__name__)
 
@@ -11,10 +14,30 @@ def getdata():
 	userdata=json.loads(rd.get('animals').decode('utf-8'))
 	return userdata
 
+@app.route('/animals/reset/', methods=['GET'])
+def animals_reset():
+    animal_dict = {}
+    animal_dict['animals'] = []
+
+    for i in range(20):
+        this_animal = {}
+        this_animal['head'] = random.choice(['snake', 'bull', 'lion', 'raven', 'bunny'])
+        this_animal['body'] = petname.name() + '-' + petname.name()
+        this_animal['arms'] = random.randint(1,5) * 2
+        this_animal['legs'] = random.randint(1,4) * 3
+        this_animal['tail'] = this_animal['legs'] + this_animal['arms']
+        this_animal['created_on'] = str(datetime.datetime.now())
+        this_animal['uuid'] =str(uuid.uuid4())
+
+        animal_dict['animals'].append(this_animal)
+
+    rd.set('animals', json.dumps(animal_dict, indent=2))
+    return str('success')
+
 @app.route('/animals', methods=['GET'])
 def get_animals():
 
-	return json.dumps(getdata(), indent=2)
+	return json.dumps(getdata(),indent=2)
 
 @app.route('/animals/daterange/',methods=['GET'])
 def animals_in_daterange():

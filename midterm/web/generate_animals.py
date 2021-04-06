@@ -26,7 +26,7 @@ def main():
     with open(sys.argv[1], 'w') as f:
         json.dump(animal_dict, f, indent=2)
        
-    rd = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
+    rd = redis.StrictRedis(host='rahul-midterm-redis', port=6379, db=0)
     rd.set('animals', json.dumps(animal_dict, indent=2))
 
 if __name__ == '__main__':
