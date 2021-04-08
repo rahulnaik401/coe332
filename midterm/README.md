@@ -13,7 +13,7 @@ git clone https://github.com/rahulnaik401/rnaik26-coe332.git
 Containerize using Docker
 
 ```bash
-docker-compose -p rnaik26 up -d
+docker-compose -p naik26  up  -d --build
 ```
 Curl Routes
 
