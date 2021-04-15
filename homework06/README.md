@@ -57,6 +57,20 @@ output:
 b'Rahul'
 ```
 I opened another shell and deleted this redis pod. I then checked using 'get pods' and another one had been created proving the persistence. 
+```bash
+kubectl delete pods rnaik26-test-redis-deployment-5dd4f7dbdb-zvm9l
+```
+output:
+```
+pod "rnaik26-test-redis-deployment-5dd4f7dbdb-zvm9l" deleted
+```
+```bash
+kubectl get pods
+```
+output
+```bash
+rnaik26-test-redis-deployment-5dd4f7dbdb-2qqrq   1/1     Running            0          12s
+```
 
 ## Step 4
 Created and applied flask deployment
