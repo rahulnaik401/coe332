@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rnaik26-test-worker-deploymeny
+  labels:
+    app: rnaik26-test-worker-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rnaik26-test-worker-api
+  template:
+    metadata:
+      labels:
+        app: rnaik26-test-worker-api
+    spec:
+      containers:
+        - name: rnaik26-test-worker-deployment
+          imagePullPolicy: Always
+          image: rahulnaik401/rnaik26-test-flask-updated:1.2
+          command: ['python', 'worker.py']
+          env:
+          - name: WORKER_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          - name: REDIS_IP
+            value: 10.99.252.240
+ 

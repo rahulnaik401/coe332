@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rnaik26-test-flask-deployment-hw7
+  labels:
+    app: rnaik26-test-flask-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rnaik26-test-flask-api
+  template:
+    metadata:
+      labels:
+        app: rnaik26-test-flask-api
+    spec:
+      containers:
+        - name: rnaik26-test-flask-updated
+          imagePullPolicy: Always
+          image: rahulnaik401/rnaik26-test-flask-updated:1.2
+          command: ['sleep', '999999999']
+          command: ['python', 'api.py']
+          env:
+          - name: FLASK_APP
+            value: "api.py"
+          ports:
+          - name: http
+            containerPort: 5000
