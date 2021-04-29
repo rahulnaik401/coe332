@@ -5,7 +5,7 @@ Deploying a worker to Kubernetes and POSTing jobs with Hotqueue
 ## Part A:
 I built the Docker image and pushed it to Dockerhub
 ```bash
-docker build -t rahulnaik401/rnaik26-test-flask-updated:1.1 .
+docker build -t rahulnaik401/rnaik26-test-flask-updated:1.2 .
 ```
 ```bash
 The push refers to repository [docker.io/rahulnaik401/rnaik26-test-flask-updated]
