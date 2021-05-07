@@ -1,4 +1,4 @@
-# Kubernetes Deployment Instructions
+# Kubernetes (k8s) Deployment Instructions
 
 ## Build and Push the Docker image
 
