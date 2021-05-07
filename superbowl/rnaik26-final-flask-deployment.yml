@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rnaik26-test-api-deployment-final
+  labels:
+    app: rnaik26-test-api-final
+    env: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rnaik26-test-api-final
+  template:
+    metadata:
+      labels:
+        app: rnaik26-test-api-final
+        env: test
+    spec:
+      containers:
+        - name: rnaik26-test-api-final
+          imagePullPolicy: Always
+          image: rahulnaik401/rnaik26-final-app-api:1.19
+          #command: ['sleep', '999999999']
+          command: ['python', 'sb_api_2.py']
+          env:
+          - name: FLASK_APP
+            value: "sb_api_2.py"
+          ports:
+          - name: http
+            containerPort: 5000

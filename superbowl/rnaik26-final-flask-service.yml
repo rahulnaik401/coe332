@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rnaik26-test-flask-service-final
+  labels:
+    username: rnaik26-test-flask-service-final
+    env: test
+spec:
+  type: ClusterIP
+  selector:
+    app: rnaik26-test-api-final
+  ports:
+  - name: flask-port
+    port: 5000
+    targetPort: 5000

@@ -1,0 +1,4 @@
+hotqueue==0.2.8
+Flask==1.1.1
+matplotlib==3.3.4
+redis==3.5.3

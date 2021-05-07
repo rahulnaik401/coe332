@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rnaik26-test-worker-deployment-final
+  labels:
+    app: rnaik26-test-worker-final
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rnaik26-test-worker-final
+  template:
+    metadata:
+      labels:
+        app: rnaik26-test-worker-final
+    spec:
+      containers:
+        - name: rnaik26-test-worker-deployment-final
+          imagePullPolicy: Always
+          image: rahulnaik401/rnaik26-final-app-api:1.19
+          #command: ['sleep', '999999999']
+          env:
+          - name: WORKER_API
+            value: "sb_worker.py"
+          

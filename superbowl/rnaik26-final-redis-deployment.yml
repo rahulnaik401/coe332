@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rnaik26-test-redis-deployment-final
+  labels:
+    env: test
+    app: rnaik26-test-redis-service-app-final
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      env: test
+      app: rnaik26-test-redis-service-app-final
+  template:
+    metadata:
+      labels:
+        env: test
+        app: rnaik26-test-redis-service-app-final
+    spec:
+      containers:
+        - name: rnaik26-test-redis-deployment-final
+          image: redis:5.0.0
+          volumeMounts:
+          - name: rnaik26-test-redis-pvc-final
+            mountPath: "/data"
+      volumes:
+      - name: rnaik26-test-redis-pvc-final
+        persistentVolumeClaim:
+          claimName: rnaik26-test-redis-pvc-final

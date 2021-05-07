@@ -1,0 +1,19 @@
+version: '3'
+services:
+    web:
+        build: .
+        container_name: rahul-superbowl-web
+        ports:
+            - 5020:5000
+        volumes:
+            - ./data/super-bowl-2.json:/super-bowl-2.json
+    redis:
+        image: redis:latest
+        container_name: rahul-superbowl-redis-1
+        ports:
+            - 6400:6379
+        volumes:
+            - ./config/redis.conf:/redis.conf
+            - ./data/:/data
+        command: [ "redis-server", "/redis.conf" ]
+
