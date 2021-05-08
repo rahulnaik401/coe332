@@ -15,9 +15,10 @@ def execute_job(jobuuid):
 	# update_job_status(jid, 'submitted')
 
 	test1=get_data()
-	xdata=[int(x['point_difference']) for x in test1 if int(x['point_difference']) <=int(data['point_spread']).decode('utf-8')]
-	ydata=[int(x['attendance']) for x in test1 if int(x['point_difference']) <=int(data['point_spread']).decode('utf-8')]
-
+	#xdata=[int(x['point_difference']) for x in test1 if int(x['point_difference']) <=int(data[b'point_spread'].decode('utf-8'))]
+	#ydata=[int(x['attendance']) for x in test1 if int(x['point_difference']) <=int(data[b'point_spread'].decode('utf-8'))]
+	xdata=[int(x['point_difference']) for x in test1 if int(x['point_difference']) <=int(data[b'point_spread'].decode('utf-8'))]
+	ydata=[int(x['attendance']) for x in test1 if int(x['point_difference']) <=int(data[b'point_spread'].decode('utf-8'))]
 	plt.scatter(xdata,ydata)
 	plt.xlabel('point_difference')
 	plt.ylabel('attendance')

@@ -1,5 +1,5 @@
 import json
-from flask import Flask, request
+from flask import Flask, request, send_file
 #import jobs
 from redis import StrictRedis
 import os
@@ -110,7 +110,7 @@ def get_job_output(jobuuid):
 
 @app.route('/download/<jobuuid>', methods=['GET'])
 def download(jobuuid):
-	path = f'/sb_api_2/{jobuuid}.png'
+	path = f'/sb_api_2/output_img.png'
 	with open(path, 'wb') as f:
 		f.write(rd2.hget(jobuuid, 'image'))
 	return send_file(path, mimetype='image/png', as_attachment=True)
